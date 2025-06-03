@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo List - Gerenciador de Tarefas</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Loading Spinner -->
+  <div id="loading-spinner" class="loading-spinner hidden">
+    <div class="spinner"></div>
+  </div>
+
+  <!-- Toast Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Login/Register Modal -->
+  <div id="auth-modal" class="modal active">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="modal-title">Login</h2>
+        <button id="close-modal" class="close-btn">&times;</button>
+      </div>
+      <form id="auth-form">
+        <div id="name-group" class="input-group hidden">
+          <input type="text" id="name" placeholder="Nome">
+          <span class="input-icon">👤</span>
+        </div>
+        
+        <div class="input-group">
+          <input type="email" id="email" placeholder="Email" required>
+          <span class="input-icon">📧</span>
+        </div>
+        <div class="input-group">
+          <input type="password" id="password" placeholder="Senha" required>
+          <span class="input-icon">🔒</span>
+        </div>
+        <button type="submit" id="auth-submit" class="auth-btn">
+          <span class="btn-text">Entrar</span>
+          <div class="btn-loader hidden"><span class="spinner"></span></div>
+        </button>
+      </form>
+      <div class="auth-switch">
+        <p id="auth-switch-text">
+          Não tem uma conta? <button id="switch-mode" class="link-btn">Registre-se</button>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- edit/delet modal -->
+   
+  <!-- App Header -->
+  <header class="app-header hidden" id="app-header">
+    <div class="header-content">
+      <div class="logo">
+        <span class="logo-icon"></span>
+        <h1>Lista de tarefas</h1>
+      </div>
+      <div class="user-actions">
+        <span id="user-email"></span>
+        <button id="logout-btn" class="logout-btn">Sair</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content hidden" id="main-content">
+    <div class="container">
+      <section class="add-task-section">
+        <div class="add-task-card">
+          <h2>Nova Tarefa</h2>
+          <form id="task-form" class="task-form">
+    <div class="form-row">
+        <div class="input-group flex-grow">
+            <input type="text" id="task-title" placeholder="Título da tarefa" required>
+        </div>
+        <button type="submit" class="add-btn">
+            <span class="add-icon">+</span> Adicionar
+        </button>
+    </div>
+    <div class="input-group">
+        <textarea id="task-description" placeholder="Descrição (opcional)" rows="3"></textarea>
+    </div>
+   <div class="input-group">
+    <label for="task-status">Status da tarefa:</label>
+    <select id="task-status">
+        <option value="pending">Pendente</option>
+        <option value="completed">Concluída</option>
+    </select>
+</div>
+</form>
+
+        </div>
+      </section>
+      <section class="tasks-section">
+        <div id="empty-state" class="empty-state">
+          <div class="empty-icon">📝</div>
+          <h3>Nenhuma tarefa encontrada</h3>
+          <p>Adicione uma nova tarefa para começar!</p>
+        </div>
+        <div id="tasks-container" class="tasks-container"></div>
+      </section>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
